@@ -16,9 +16,6 @@ func main() {
 	log := logger.New()
 	log.Info("Launching stealth browser")
 
-	// ----------------------------
-	// STEP 1: SEARCH MODULE DEMO
-	// ----------------------------
 	searchSvc := search.New(log)
 
 	criteria := search.Criteria{
@@ -41,18 +38,13 @@ func main() {
 		log.Info(p.Name + " | " + p.URL)
 	}
 
-	// ----------------------------
-	// STEP 2: CONNECTION REQUESTS
-	// ----------------------------
-	connectSvc := connect.New(log, 5) // daily limit = 5
+	connectSvc := connect.New(log, 5)
 
 	for _, p := range profiles {
 		note := "Hi " + p.Name + ", I'd love to connect and exchange ideas."
 		_ = connectSvc.Send(p, note)
 	}
-	// ----------------------------
-	// STEP 3: MESSAGING SYSTEM
-	// ----------------------------
+
 	msgSvc := messaging.New(log)
 
 	template := "Hi {{name}}, thanks for connecting! Looking forward to learning more about {{company}}."
@@ -61,9 +53,6 @@ func main() {
 		_ = msgSvc.SendFollowUp(p, template)
 	}
 
-	// ----------------------------
-	// STEP 3: BROWSER + AUTH FLOW
-	// ----------------------------
 	br, err := browser.Launch()
 	if err != nil {
 		log.Error(err.Error())
@@ -72,7 +61,6 @@ func main() {
 
 	page := br.MustPage()
 
-	// Load cookies if available
 	_ = storage.LoadCookies(page)
 
 	log.Info("Opening LinkedIn login page")
@@ -87,7 +75,6 @@ func main() {
 		return
 	}
 
-	// CAPTCHA GUARD (IMPORTANT)
 	if state.Captcha {
 		log.Warn("CAPTCHA detected. Aborting automated login.")
 		time.Sleep(10 * time.Second)
@@ -101,7 +88,6 @@ func main() {
 	log.Info("Login button present: " + boolStr(state.LoginButton))
 	log.Info("Checkpoint detected: " + boolStr(state.Checkpoint))
 
-	// Save cookies before exit
 	_ = storage.SaveCookies(page)
 
 	log.Info("Demo running. Press CTRL+C to exit.")
