@@ -1,0 +1,14 @@
+[
+  {
+    "ProfileID": "p-1-1",
+    "ProfileURL": "https://linkedin.com/in/alice-demo",
+    "Content": "Hi Alice Johnson, thanks for connecting! Looking forward to learning more about DemoCorp.",
+    "SentAt": "2025-12-18T00:53:28.0294173+05:30"
+  },
+  {
+    "ProfileID": "p-1-2",
+    "ProfileURL": "https://linkedin.com/in/bob-demo",
+    "Content": "Hi Bob Smith, thanks for connecting! Looking forward to learning more about DemoCorp.",
+    "SentAt": "2025-12-18T00:53:29.4334471+05:30"
+  }
+]
