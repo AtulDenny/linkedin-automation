@@ -148,3 +148,14 @@ python -m http.server 8080
 Run Automation
 cd ..
 go run ./cmd/app
+
+## 🎥 Demo Video
+
+A walkthrough video demonstrating:
+
+- Project setup and configuration
+- Automation flow execution
+- Stealth behavior and anti-detection
+- CAPTCHA detection and ethical abort logic
+
+▶️ **Demo Video (Unlisted):** https://drive.google.com/drive/folders/1_Mjw8GfjpQ9ukgThaIeY41wpJ9LzjlzE?dmr=1&ec=wgc-drive-globalnav-goto
